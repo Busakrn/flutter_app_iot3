@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; //0xFF424552=สีที่ใช้
+import 'package:flutter/services.dart';
+import 'package:flutter_app_iot3/views/login_ui.dart';
+import 'package:flutter_app_iot3/views/new_account_ui.dart'; //0xFF424552=สีที่ใช้
 
 class StartUI extends StatefulWidget {
   const StartUI({Key? key}) : super(key: key);
@@ -108,7 +110,16 @@ class _StartUIState extends State<StartUI> {
                 height: 120.0,
               ),
               ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context){
+                      return LoginUI();
+                    },
+                    ),
+                  );
+                },
                 child: Text(
                   'Log in',
                   style: TextStyle(
@@ -131,6 +142,9 @@ class _StartUIState extends State<StartUI> {
                 ),
 
               ),
+              SizedBox(
+                height: 120.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -138,7 +152,16 @@ class _StartUIState extends State<StartUI> {
                     'You don\'t have an account',
                   ),
                   InkWell(
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context){
+                            return NewAccountUI();
+                          },
+                        ),
+                      );
+                    },
                     child: Text(
                       'Sign up',
                       style: TextStyle(
